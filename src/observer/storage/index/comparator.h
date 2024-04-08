@@ -9,27 +9,17 @@ MERCHANTABILITY OR FIT FOR A PARTICULAR PURPOSE.
 See the Mulan PSL v2 for more details. */
 
 //
-// Created by Wangyunlai on 2022/12/26.
+// Created by wangyunlai on 2021/6/11
 //
 
 #pragma once
 
-#include "sql/optimizer/rewrite_rule.h"
+namespace common {
 
-class LogicalOperator;
 
-/**
- * @brief 简化多个表达式联结的运算
- * @ingroup Rewriter
- * @details 比如只有一个表达式，或者表达式可以直接出来
- */
-class ConjunctionSimplificationRule : public ExpressionRewriteRule 
-{
-public:
-  ConjunctionSimplificationRule() = default;
-  virtual ~ConjunctionSimplificationRule() = default;
+int compare_int(void *arg1, void *arg2);
+int compare_float(void *arg1, void *arg2);
+int compare_string(void *arg1, int arg1_max_length, void *arg2, int arg2_max_length);
+int compare_date(void* args1, void* args2);
 
-  RC rewrite(std::unique_ptr<Expression> &expr, bool &change_made) override;
-
-private:
-};
+}
