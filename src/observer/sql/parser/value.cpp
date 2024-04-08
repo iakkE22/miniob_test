@@ -24,7 +24,11 @@ const char *ATTR_TYPE_NAME[] = {"undefined", "chars", "ints", "floats", "boolean
 const char *attr_type_to_string(AttrType type)
 {
     if (type >= UNDEFINED && type <= DATES) {
+        if (type == DATES) {
+            return "DATE";
+        } else {
             return ATTR_TYPE_NAME[type];
+        }
     }
     return "unknown";
 }
